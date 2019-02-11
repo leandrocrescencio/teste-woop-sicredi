@@ -2,27 +2,25 @@
 Automation Assessment 
 
 ## TestCases ##
-- src/test/java/api/testcases/ - Automação TestNG + Rest Assured 
-- src/test/java/ui/testcases/ - Automação Selenium Webdriver + TestNG
+- src/test/java/api/testcases/ - AutomaÃ§Ã£o TestNG + Rest Assured
+- src/test/java/ui/testcases/ - AutomaÃ§Ã£o Selenium Webdriver + TestNG 
 
-### História
-**Com o propósito de** Simular um Investimento na Poupança
-**como um** Associado,
-**eu gostaria de** preencher o formulário de simulação
-**e ver** a tabela de resultado com Mês e Valor.
+### HistÃ³ria ###
+**Com o propÃ³sito de** Simular um Investimento na PoupanÃ§a 
+**como um** Associado, 
+**eu gostaria de** preencher o formulÃ¡rio de simulaÃ§Ã£o 
+**e ver** a tabela de resultado com MÃªs e Valor. 
 
-**Critério de aceitação:**
+**CritÃ©rio de aceitaÃ§Ã£o:**
 
-1. O associado preencher todos os campos corretamente e visualizar o formulário de simulação
-2. O associado preencher o Valor inferior a “20.00” e receber a mensagem de orientação “Valor mínimo de 20.00”.
-
-
-* Analise a história e defina os testes de aceitação.
-* Exponha o planejamento para execução dos testes.
-* Informe e justifique as técnicas de testes escolhidas.
-
-- Técnicas de bordas limites utilizadas para verificar o fluxo feliz, onde é possível que o associado faça uma simulação corretamente, assim como a verificação das mensagens de erros de "Valor mínimo de 20.00". Foi utilizado dataprovider para a entrada de dados dessa maneira para as variadas execuções. Apesar da não utilização de um framework BDD como o Cucumber a análise de negócio partiu do comportamento apresentado no sistema e na História de Usuário apresentada.
-
-- As escolhas para testes de API e UI foram feitas para garantir harmonia entre os scripts, ou seja, ambas coexistirem em um mesmo projeto, e com a possibilidade de serem integrados em possíveis pipelines. E também a possibilidade de juntar em mesmas suites de regressão tanto testes de API quanto de UI.
+1. O associado preencher todos os campos corretamente e visualizar o formulÃ¡rio de simulaÃ§Ã£o
+2. O associado preencher o Valor inferior a â€œ20.00â€ e receber a mensagem de orientaÃ§Ã£o â€œValor mÃ­nimo de 20.00â€.
 
 
+* Analise a histÃ³ria e defina os testes de aceitaÃ§Ã£o.
+* Exponha o planejamento para execuÃ§Ã£o dos testes.
+* Informe e justifique as tÃ©cnicas de testes escolhidas.
+
+- TÃ©cnicas de bordas limites, e partiÃ§Ã£o de equivalÃªncia utilizadas para verificar o fluxo feliz, onde Ã© possÃ­vel que o associado faÃ§a uma simulaÃ§Ã£o corretamente, assim como a verificaÃ§Ã£o das mensagens de erros de "Valor mÃ­nimo de 20.00". Foi utilizado dataprovider para a entrada de dados dessa maneira para as variadas execuÃ§Ãµes se utiliza o mesmo script. Apesar da nÃ£o utilizaÃ§Ã£o de um framework BDD como o Cucumber a anÃ¡lise de negÃ³cio partiu do comportamento apresentado no sistema e na HistÃ³ria de UsuÃ¡rio apresentada e suas variaÃ§Ãµes de negÃ³cio.
+
+- As escolhas para testes de API e UI foram feitas para garantir harmonia entre os scripts, ou seja, ambas coexistirem em um mesmo projeto, e com a possibilidade de serem integrados em possÃ­veis pipelines. E tambÃ©m a possibilidade de juntar em mesmas suites de regressÃ£o tanto testes de API quanto de UI.
