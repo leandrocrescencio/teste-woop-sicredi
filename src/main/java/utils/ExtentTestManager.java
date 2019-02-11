@@ -2,10 +2,9 @@ package utils;
 
 import java.util.HashMap;
 import java.util.Map;
+
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
-
-import utils.StaticValues;
 
 public class ExtentTestManager {  
 	
@@ -15,7 +14,7 @@ public class ExtentTestManager {
 	
 	@SuppressWarnings("rawtypes")
 	static Map extentTestMap = new HashMap();
-	static ExtentReports extent = ExtentManager.getReporter(StaticValues.TESTNAME);
+	static ExtentReports extent = ExtentManager.getReporter(StaticValues.testname);
 
 	public static synchronized ExtentTest getTest() {
 		return (ExtentTest) extentTestMap.get((int) (Thread.currentThread().getId()));

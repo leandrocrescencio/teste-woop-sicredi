@@ -14,11 +14,11 @@ public class PropertiesUtils {
 	
 	private static final Logger LOGGER = Logger.getLogger(PropertiesUtils.class);
 	private static Properties propertie = new Properties();
-	private static String PATH = StaticValues.PATH_PROJECT + "/src/test/resources/test.properties";
+	private static String path = StaticValues.PATH_PROJECT + "/src/test/resources/test.properties";
 
 	public static String getValue(String name) {
 		try {
-			propertie.load(new FileInputStream(PATH));
+			propertie.load(new FileInputStream(path));
 		} catch (IOException e) {
 			LOGGER.warn(e.getMessage());
 		}

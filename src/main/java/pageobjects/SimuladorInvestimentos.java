@@ -22,36 +22,18 @@ public class SimuladorInvestimentos {
 		return WebUtils.elementWait(driver, By.name("valorAplicar"));
 	}
 
-	public void setValorAplicado(String valor) {
-		WebElement valorAplicado = this.getValorAplicar();
-		valorAplicado.clear();
-		valorAplicado.sendKeys(valor);
-	}
-
 	public WebElement getValorInvestir() {
 		return WebUtils.elementWait(driver, By.name("valorInvestir"));
-	}
-
-	public void setValorInvestido(String valor) {
-		WebElement valorInvestido = this.getValorInvestir();
-		valorInvestido.clear();
-		valorInvestido.sendKeys(valor);
 	}
 
 	public WebElement getTempo() {
 		return WebUtils.elementWait(driver, By.name("tempo"));
 	}
 
-	public void setTempo(String valor) {
-		WebElement tempo = this.getTempo();
-		tempo.clear();
-		tempo.sendKeys(valor);
-	}
-
 	public WebElement getPeriodo() {
 		return WebUtils.elementWait(driver, By.xpath("//div[@class=\"blocoFormulario blocoMeses blocoSelect\"]"));
 	}
-	
+
 	public WebElement getMeses() {
 		return WebUtils.clickWait(driver, By.xpath("//a[contains(text(), \"Meses\")]"));
 	}
@@ -67,9 +49,29 @@ public class SimuladorInvestimentos {
 	public WebElement getClean() {
 		return WebUtils.clickWait(driver, By.xpath("//span[contains(text(), \"Limpar formulário\")]"));
 	}
-	
+
 	public WebElement getRefazerButton() {
 		return WebUtils.clickWait(driver, By.xpath("//a[@class=\"btn btnAmarelo btnRefazer\"]"));
+	}
+
+	/****** SETTERS ******/
+
+	public void setValorAplicado(String valor) {
+		WebElement valorAplicado = this.getValorAplicar();
+		valorAplicado.clear();
+		valorAplicado.sendKeys(valor);
+	}
+
+	public void setValorInvestido(String valor) {
+		WebElement valorInvestido = this.getValorInvestir();
+		valorInvestido.clear();
+		valorInvestido.sendKeys(valor);
+	}
+
+	public void setTempo(String valor) {
+		WebElement tempo = this.getTempo();
+		tempo.clear();
+		tempo.sendKeys(valor);
 	}
 
 	/****** ERRORS ******/

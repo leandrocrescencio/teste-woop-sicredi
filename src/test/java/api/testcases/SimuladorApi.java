@@ -4,29 +4,14 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
-import utils.PropertiesUtils;
 
-public class SimuladorApi {
+public class SimuladorApi extends ApiBase {
 
-	RequestSpecification rspec;
-	RequestSpecBuilder build;
-
-	@BeforeMethod
-	public void setBaseUri() {
-		build = new RequestSpecBuilder();
-		build.setBaseUri(PropertiesUtils.getValue("baseuri"));
-		build.setBasePath(PropertiesUtils.getValue("path"));
-		rspec = build.build();
-	}
-	
 	@DataProvider(name = "dadosmeses")
 	public String[][] mesesTestData() {
 	    return new String[][] {
@@ -48,7 +33,7 @@ public class SimuladorApi {
 	}
 
 	
-	@Test(priority = 1, description="VerificaÃ§Ã£o de status do serviÃ§o")
+	@Test(priority = 1, description="Verificação de status do serviço")
 	public void test01() {
 		 given()
 	        .spec (rspec)
@@ -59,7 +44,7 @@ public class SimuladorApi {
 	        .statusCode (200);
 	}
 	
-	@Test(priority = 2, description="VerificaÃ§Ã£o do ID get", dependsOnMethods={"test01"})
+	@Test(priority = 2, description="Verificação do ID get", dependsOnMethods={"test01"})
 	public void test02() {
 
 		 given()
@@ -71,7 +56,7 @@ public class SimuladorApi {
 	        .body("id",equalTo(new Integer("1")));
 	}
 	
-	@Test(priority = 3, description="VerificaÃ§Ã£o dos meses", dependsOnMethods={"test01"}, dataProvider = "dadosmeses")
+	@Test(priority = 3, description="Verificação dos meses", dependsOnMethods={"test01"}, dataProvider = "dadosmeses")
 	public void test03(String index, String valor) {
 		final Response resp =
 		 given()
@@ -79,9 +64,6 @@ public class SimuladorApi {
 	        .when ()
 	        .get ("")
 	        .then()
-	        .assertThat() 
-	        .body("id",equalTo(new Integer("1")))
-	        .statusCode(200)
 	        .extract().response();
 		
 		final String meses = resp.jsonPath().get("meses[" + index + "]");
@@ -89,7 +71,7 @@ public class SimuladorApi {
 	}
 	
 	
-	@Test(priority = 4, description="VerificaÃ§Ã£o dos valores", dependsOnMethods={"test01"}, dataProvider = "dadosvalor")
+	@Test(priority = 4, description="Verificação dos valores", dependsOnMethods={"test01"}, dataProvider = "dadosvalor")
 	public void test04(String index, String valor) {
 		final Response resp =
 		 given()
@@ -97,9 +79,6 @@ public class SimuladorApi {
 	        .when ()
 	        .get ("")
 	        .then()
-	        .assertThat() 
-	        .body("id",equalTo(new Integer("1")))
-	        .statusCode(200)
 	        .extract().response();
 		
 		final String meses = resp.jsonPath().get("valor[" + index + "]");
